@@ -1,0 +1,66 @@
+#include <SoftwareSerial.h>
+
+class RotaryEncoder {
+private:
+	int _aPin,_bPin;
+	int _a,_b;
+
+	void updateVals() {
+		int aVal=analogRead(_aPin);
+		int bVal=analogRead(_bPin);
+
+		_a=aVal<550?1:0;
+		_b=bVal<550?1:0;
+	}
+
+public:
+	RotaryEncoder(int aPin, int bPin) {
+		_aPin=aPin;
+		_bPin=bPin;
+
+		update();
+	}
+
+	void update() {
+		updateVals();
+	}
+
+	int getState() {
+		return _a+(_b<<1);
+	}
+};
+
+RotaryEncoder encoder(0,1);
+
+void setup() {
+	Serial.begin(9600);
+	Serial.print("starting now...\n\r");
+}
+
+int amax=-1, amin=-1, bmin=-1, bmax=-1;
+
+void loop() {
+	/*int a=analogRead(0);
+	int b=analogRead(1);
+
+	if (amax<0 || a>amax) amax=a;
+	if (amin<0 || a<amin) amin=a;
+
+	if (bmax<0 || b>bmax) bmax=b;
+	if (bmin<0 || b<bmin) bmin=b;
+
+	Serial.print(" a: "); Serial.print(a);
+	Serial.print(" min: "); Serial.print(amin);
+	Serial.print(" max: "); Serial.print(amax);
+
+	Serial.print("   b: "); Serial.print(b);
+	Serial.print(" min: "); Serial.print(bmin);
+	Serial.print(" max: "); Serial.print(bmax);
+	Serial.println("");*/
+
+	encoder.update();
+
+	Serial.print(" encstate: "); Serial.println(encoder.getState());
+
+	delay(100);
+}

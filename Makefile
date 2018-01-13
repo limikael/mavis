@@ -7,10 +7,10 @@ ARDUINO_DIR = /home/m/usr/arduino/
 #AVR_TOOLS_DIR = /home/m/usr/arduino/hardware/tools/avr/
 AVR_TOOLS_DIR = /usr/
 
-#ARDUINO_LIBS = StepperDriver Scheduler
-USER_LIB_PATH=./libraries
+#ARDUINO_LIBS = SoftwareSerial
+#USER_LIB_PATH=./libraries
 
-ARDUINO_SKETCHBOOK = src/mavis.ino
+ARDUINO_SKETCHBOOK = mavis.ino
 
 CXXFLAGS_STD = -std=c++11
 
