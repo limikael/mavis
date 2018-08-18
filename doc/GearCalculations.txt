@@ -1,0 +1,11 @@
+ToothDistance=Module*Pi
+
+Module=ToothDistance/Pi
+
+Circumfence=NumTeeth*ToothDistance
+
+Diameter=NumTeeth*Module
+
+Rad=NumTeeth*Module/2
+
+ToothHeight=Mod*2
