@@ -1,15 +1,19 @@
+#
+# Might be a better way: https://forum.freecadweb.org/viewtopic.php?t=4137
+#
+
 from freecad.gears.features import ViewProviderGear, involute_gear, involute_gear_rack
 import math
 
 TEETH_DISTANCE=5
 THICKNESS=10
 BETA_START=0
-BETA_END=11.25
-NUMBER_OF_TEETH=18
+BETA_END=-11.25
+NUMBER_OF_TEETH=27
 HEIGHT=10
 
 def makeRackPart():
-	o=FreeCAD.ActiveDocument.addObject("Part::FeaturePython", "InvoluteRack")
+	o=App.ActiveDocument.addObject("Part::FeaturePython", "InvoluteRack")
 	involute_gear_rack(o)
 	ViewProviderGear(o.ViewObject)
 
@@ -20,7 +24,9 @@ def makeRackPart():
 
 	return o
 
+parts=[]
 y=0
+
 for i in range(0,NUMBER_OF_TEETH):
 	beta=BETA_START+i*(BETA_END-BETA_START)/NUMBER_OF_TEETH
 	dist=TEETH_DISTANCE/math.cos(math.radians(beta))
@@ -28,10 +34,15 @@ for i in range(0,NUMBER_OF_TEETH):
 	part=makeRackPart()
 	part.beta=beta
 	part.Placement.Base=FreeCAD.Vector(0,y,0)
+	parts.append(part)
 
 	y=y+dist
 
-FreeCAD.ActiveDocument.recompute()
+u=App.ActiveDocument.addObject("Part::MultiFuse","Union")
+u.Shapes=parts
+u.Label="Linear Beta Rack"
+
+App.ActiveDocument.recompute()
 Gui.SendMsgToActiveView("ViewFit")
 
 print "Done..."
