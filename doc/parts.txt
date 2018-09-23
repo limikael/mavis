@@ -1,0 +1,16 @@
+Motors:
+- https://www.alibaba.com/product-detail/37mm-low-noise-high-torque-low_60178515204.html
+
+Slotted optical sensor:
+- https://www.elfa.se/sv/laesgaffel-mm-50-ma-30-30-ma-20-70-everlight-electronics-itr8102/p/17534589
+
+Caclulations:
+
+https://www.kjell.com/se/sortiment/el-verktyg/elektronik/3d-skrivare/k8200/reservdelar/stegmotor-200-steg-varv-p87467?gclid=CjwKCAjwlejcBRAdEiwAAbj6KRA8Zc88iGhbX_hMvbEw1iR5BH120oFmQmoTwHJQaXSRR0vxDb47CxoCMe0QAvD_BwE&gclsrc=aw.ds
+
+Holding torque: 4.8 kgcm
+
+https://www.kjell.com/se/sortiment/el-verktyg/arduino/tillbehor/luxorparts-stegmotor-nema-17-p90776
+
+Holding Toque: 2.8 kgcm
+
