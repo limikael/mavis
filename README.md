@@ -11,3 +11,5 @@ These are some photos of the first iteration that I built in Cambodia in 2017.
 This is a rendering of the current prototype. As of writing I haven't started building it.
 
 ![mavis](https://raw.githubusercontent.com/limikael/mavis/master/assemblies/mavis_on_1m_rail.jpg)
+
+![mavis](https://raw.githubusercontent.com/limikael/mavis/master/assemblies/mavis_with_arm_on_1m_rail.jpg)
