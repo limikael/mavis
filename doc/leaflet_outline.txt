@@ -1,0 +1,39 @@
+1. Front
+2. A robot to grows food.
+  - It moves on a rail. The base of the design is a rail. The rail is created using 3D printed parts and PVC pipes. The rail is a rack rail.
+  - On the rail thre is a moving base. This moving base has a cog wheel that engages the rack. The base has wheels on top and on the bottom the rail in order to not fall off.
+  - The base has an arm on it. The arm can pivot and reach out on each side. At the tip of arm there is a tool mount for different tools.
+3. Like a model train
+  - The arm can reach 1.5m on each side.
+  - The rail has straight as well as curve pieces.
+  - Can be combined so a large area of any layout can be reached.
+4. Farmbot (standing on the sholder of giants)
+  - Mavis is built on the open source project Farmbot and can be thought of a mod or an extension and part of that ecosystem.
+  - Mavis uses the Universal Tool Mount from Farmbot. It can use all the tools designed for Farmbot.
+  - Mavis can be controlled using the Farmbot software. This is an app as well as a web based interface.
+5. Cheap and available materials
+  - Mechanical parts: PVC pipes and 3D printed designs.
+  - Motors: Can be built with a variety of available motors. These can often be found as e-waste.
+  - Electronics: Mavis uses Arduino and available of-the-shelf components.
+6. Ideology. The why. 
+7. The lego of robotics
+   - There are 24 3D printable pieces.
+   - Lige lego, these pieces can be played with and experimented with. What can you design?
+   - This makes them a useful tool in STEM education.
+8. Join.
+  - This is an open source project.
+  - Links to GitHub, Facebook
+
+Like a model train.
+It can be controlled via wifi.
+
+What is it?
+- Rail
+- Moving base
+- Arm
+
+What can it do?
+ - The universal tool mount can connect to four different tools
+
+How does it work?
+ - It uses arduino

@@ -9,3 +9,12 @@ Diameter=NumTeeth*Module
 Rad=NumTeeth*Module/2
 
 ToothHeight=Mod*2
+
+---
+
+Gear down for a rodded knee.
+
+D=The distance from the center joint to the rodded joint.
+e=Distance between threads.
+
+GearDown = 2*pi*D/e

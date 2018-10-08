@@ -14,3 +14,9 @@ https://www.kjell.com/se/sortiment/el-verktyg/arduino/tillbehor/luxorparts-stegm
 
 Holding Toque: 2.8 kgcm
 
+Inköpslista:
+
+- Stepper motors
+- Stepper motor drivers
+- DC Motors
+- Geared DC motors
