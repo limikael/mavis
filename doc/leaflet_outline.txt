@@ -15,7 +15,10 @@
   - Mechanical parts: PVC pipes and 3D printed designs.
   - Motors: Can be built with a variety of available motors. These can often be found as e-waste.
   - Electronics: Mavis uses Arduino and available of-the-shelf components.
-6. Ideology. The why. 
+6. Ideology. The why.
+  - The third wave has been theorized in Future Chock.
+  - I don't like hierarchies. I like decentralisation.
+  - I don't seeing that technology is used for buerochacy. I like technology used to empower and improve people's lifes and give individual freedom.
 7. The lego of robotics
    - There are 24 3D printable pieces.
    - Lige lego, these pieces can be played with and experimented with. What can you design?
