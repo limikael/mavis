@@ -1,0 +1,6 @@
+[submodule "src/mqthing"]
+	path = src/mqthing
+	url = git@github.com:limikael/mqthing.git
+[submodule "src/rotenc"]
+	path = src/rotenc
+	url = git@github.com:limikael/rotenc.git
