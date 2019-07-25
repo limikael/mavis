@@ -1,9 +1,9 @@
 #include "src/mqthing/MqThing.h"
 #include "src/rotenc/RotEnc.h"
+#include "src/SoftServo.h"
 
 MqThing thing;
-RotEnc enc(D7,D5);
-int lastEnc=0;
+SoftServo servo(D2,D6,D5,D7);
 
 void on_connect() {
   Serial.println("Yey... Connect...");
@@ -15,38 +15,29 @@ void on_connect() {
 void on_message(String topic, String payload) {
   Serial.println(String("In: ")+topic+String(": ")+payload);
 
-  if (payload=="green-on") {
-    digitalWrite(D6,HIGH);
+  char *c=strtok((char*)payload.c_str()," \n\t\r");
+  char *a=strtok(NULL," \n\t\r");
+
+  String cmd=String(c);
+  String arg=String(a);
+
+  if (cmd=="green") {
+    if (arg=="off")
+      digitalWrite(D3,LOW);
+
+    else
+      digitalWrite(D3,HIGH);
   }
 
-  else if (payload=="green-off") {
-    digitalWrite(D6,LOW);
-  }
-
-  else if (payload=="motor-stop") {
-    digitalWrite(D2,LOW);
-    digitalWrite(D3,LOW);
-  }
-
-  else if (payload=="motor-left") {
-    digitalWrite(D2,HIGH);
-    digitalWrite(D3,LOW);
-  }
-
-  else if (payload=="motor-right") {
-    digitalWrite(D2,LOW);
-    digitalWrite(D3,HIGH);
+  else if (cmd=="target") {
+    int target=atoi(arg.c_str());
+    servo.setTarget(target);
   }
 }
 
 void setup() {
   Serial.begin(115200);
   Serial.println("Starting...");
-
-  pinMode(D2,OUTPUT);
-  pinMode(D3,OUTPUT);
-  digitalWrite(D2,LOW);
-  digitalWrite(D3,LOW);
 
   thing.setButtonPin(D1);
   thing.setLedPin(D8);
@@ -56,17 +47,13 @@ void setup() {
   thing.onConnect(on_connect);
   thing.onMessage(on_message);
 
-  pinMode(D6,OUTPUT);
+  pinMode(D3,OUTPUT);
+  //servo.setDuty(512);
+  servo.setDuty(768);
+  servo.setTolerance(25);
 }
 
 void loop() {
   thing.loop();
-
-  int v=enc.getValue();
-  if (v!=lastEnc) {
-    Serial.println(v);
-    lastEnc=v;
-  }
-
-//  delay(100);
+  servo.loop();
 }
