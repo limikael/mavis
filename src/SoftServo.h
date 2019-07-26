@@ -1,7 +1,12 @@
 #ifndef __SOFT_SERVO_H__
 #define __SOFT_SERVO_H__
 
+#ifdef MOCK_ARDUINO
+#include "Arduino.mock.h"
+#else
 #include <Arduino.h>
+#endif
+
 #include "rotenc/RotEnc.h"
 
 class SoftServo {
@@ -18,8 +23,8 @@ private:
 	int _motorAPin;
 	int _motorBPin;
 	int _tolerance;
-	RotEnc _rotEnc;
 	int _lastVal;
+	RotEnc _rotEnc;
 };
 
 #endif

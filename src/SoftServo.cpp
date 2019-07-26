@@ -29,7 +29,7 @@ void SoftServo::loop() {
 	int v=_rotEnc.getValue();
 
 	if (v!=_lastVal) {
-		Serial.println(String("Servo enc: ")+v);
+		//Serial.println(String("Servo enc: ")+v);
 		_lastVal=v;
 	}
 

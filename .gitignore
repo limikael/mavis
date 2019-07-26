@@ -1,5 +1,6 @@
 attic
 build-uno/
+bin/
 *.fcstd1
 *.FCStd1
 *.gcode
