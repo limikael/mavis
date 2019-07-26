@@ -12,18 +12,22 @@
 class SoftServo {
 public:
 	SoftServo(int motorAPin, int motorBPin, int encAPin, int encBPin);
-	void setTarget(int target);
 	void loop();
-	void setDuty(int duty);
+
+	void setTarget(int target);
 	void setTolerance(int tolerance);
+	void setMinDuty(int minDuty);
+	void setMaxDuty(int maxDuty);
+	void setRamp(int ramp);
 
 private:
-	int _duty;
+	int _minDuty,_maxDuty;
 	int _target;
 	int _motorAPin;
 	int _motorBPin;
-	int _tolerance;
+	int _tolerance, _ramp;
 	int _lastVal;
+	void _setDuties(int aDuty, int bDuty);
 	RotEnc _rotEnc;
 };
 

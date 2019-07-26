@@ -17,11 +17,10 @@ void testServo(SoftServo *servo, int target, int rotEncValue) {
 int main(void) {
 	SoftServo servo(0,1,2,3);
 	servo.setTolerance(10);
-	servo.setDuty(1234);
+	servo.setMinDuty(100);
+	servo.setMaxDuty(200);
+	servo.setRamp(50);
 
-	testServo(&servo,0,-100);
-	testServo(&servo,0,-5);
-	testServo(&servo,0,0);
-	testServo(&servo,0,5);
-	testServo(&servo,0,100);
+	for (int i=-100; i<=100; i+=5)
+		testServo(&servo,20,i);
 }

@@ -48,9 +48,10 @@ void setup() {
   thing.onMessage(on_message);
 
   pinMode(D3,OUTPUT);
-  //servo.setDuty(512);
-  servo.setDuty(768);
-  servo.setTolerance(25);
+  servo.setMinDuty(0);
+  servo.setMaxDuty(768);
+  servo.setTolerance(10);
+  servo.setRamp(1000);
 }
 
 void loop() {
