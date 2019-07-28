@@ -15,19 +15,19 @@ public:
 	void loop();
 
 	void setTarget(int target);
-	void setTolerance(int tolerance);
 	void setMinDuty(int minDuty);
 	void setMaxDuty(int maxDuty);
 	void setRamp(int ramp);
 
 private:
 	int _minDuty,_maxDuty;
+	int _ramp;
+	int _osc;
 	int _target;
 	int _motorAPin;
 	int _motorBPin;
-	int _tolerance, _ramp;
-	int _lastVal;
-	void _setDuties(int aDuty, int bDuty);
+	int _lastVal,_lastDir;
+	void _setDuty(int duty);
 	RotEnc _rotEnc;
 };
 

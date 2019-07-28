@@ -1,9 +1,11 @@
 #include "src/mqthing/MqThing.h"
 #include "src/rotenc/RotEnc.h"
-#include "src/SoftServo.h"
+#include <PID_v1.h>
 
 MqThing thing;
-SoftServo servo(D2,D6,D5,D7);
+RotEnc rotEnc(D5,D7);
+double setpoint, input, output;
+PID pid(&input,&output,&setpoint,.1,0,0,DIRECT);
 
 void on_connect() {
   Serial.println("Yey... Connect...");
@@ -31,7 +33,7 @@ void on_message(String topic, String payload) {
 
   else if (cmd=="target") {
     int target=atoi(arg.c_str());
-    servo.setTarget(target);
+    setpoint=target;
   }
 }
 
@@ -48,12 +50,38 @@ void setup() {
   thing.onMessage(on_message);
 
   pinMode(D3,OUTPUT);
-  servo.setMinDuty(768);
-  servo.setMaxDuty(1023);
-  servo.setRamp(500);
+  pinMode(D2,OUTPUT);
+  pinMode(D6,OUTPUT);
+
+  digitalWrite(D2,LOW);
+  digitalWrite(D6,LOW);
+
+  setpoint=0;
+  input=rotEnc.getValue();
+
+  pid.SetOutputLimits(-768,768);
+  pid.SetMode(AUTOMATIC);
 }
 
 void loop() {
   thing.loop();
-  servo.loop();
+
+  input=rotEnc.getValue();
+  pid.Compute();
+  Serial.println(String(input)+" -> "+String(setpoint)+" d: "+String(output));
+
+  if (abs(output)<25) {
+    analogWrite(D2,0);
+    analogWrite(D6,0);
+  }
+
+  else if (output>0) {
+    analogWrite(D2,255+output);
+    analogWrite(D6,0);
+  }
+
+  else {
+    analogWrite(D2,0);
+    analogWrite(D6,255+(-output));
+  }
 }
